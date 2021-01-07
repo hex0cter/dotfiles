@@ -6,7 +6,7 @@ install_dotfiles() {
   if [ -d $HOME/.cfg ]
   then
     cd $HOME/.cfg
-    git pull
+    dot pull
   else
     git clone --bare https://github.com/hex0cter/dotfiles.git $HOME/.cfg
   fi
