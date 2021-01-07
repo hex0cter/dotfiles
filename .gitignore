@@ -1,0 +1,12 @@
+.vscode/
+.idea/
+*.tmp
+.ash_history
+.bash_history
+.cache
+fluxbox/
+.pki/
+git-crypt.key
+.config/
+.fluxbox/
+.cfg
