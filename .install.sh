@@ -13,6 +13,7 @@ install_dotfiles() {
     $dot checkout 2>&1 | egrep "\s+\." | awk {'print $1'} | xargs -I{} mv {} .cfg-backup/{}
     $dot checkout
   else
+    $dot checkout 2>&1 | egrep "\s+\." | awk {'print $1'} | xargs -I{} mv {} .cfg-backup/{}
     $dot pull
   fi
 }
