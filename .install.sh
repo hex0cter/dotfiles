@@ -1,20 +1,18 @@
 #!/usr/bin/env bash
 
 install_dotfiles() {
-  shopt -s expand_aliases
-
-  alias dot='git --git-dir=$HOME/.cfg/ --work-tree=$HOME'
+  dot='git --git-dir=$HOME/.cfg/ --work-tree=$HOME'
 
   if [ ! -d $HOME/.cfg ]
   then
     git clone --bare https://github.com/hex0cter/dotfiles.git $HOME/.cfg
   fi
 
-  dot config --local status.showUntrackedFiles no
+  $dot config --local status.showUntrackedFiles no
 
   mkdir -p .cfg-backup
-  dot checkout 2>&1 | egrep "\s+\." | awk {'print $1'} | xargs -I{} mv {} .cfg-backup/{}
-  dot checkout
+  $dot checkout 2>&1 | egrep "\s+\." | awk {'print $1'} | xargs -I{} mv {} .cfg-backup/{}
+  $dot checkout
 }
 
 install_zsh() {
