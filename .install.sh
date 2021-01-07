@@ -1,6 +1,8 @@
 #!/usr/bin/env bash
 
 install_dotfiles() {
+  shopt -s expand_aliases
+
   alias dot='git --git-dir=$HOME/.cfg/ --work-tree=$HOME'
 
   if [ ! -d $HOME/.cfg ]
