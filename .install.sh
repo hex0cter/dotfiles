@@ -18,8 +18,8 @@ install_linux() {
   sudo apt -y install git tmux zsh
   echo "install linux"
 
-  install_zsh
   install_dotfiles
+  install_zsh
 }
 
 install_macos() {
@@ -27,8 +27,8 @@ install_macos() {
   brew install git tmux zsh
   echo "install macos"
 
-  install_zsh
   install_dotfiles
+  install_zsh
 }
 
 os=$(uname)
