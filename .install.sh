@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 install_dotfiles() {
-  git clone --bare git@github.com:hex0cter/dotfiles.git $HOME/.cfg
+  git clone --bare https://github.com/hex0cter/dotfiles.git $HOME/.cfg
 
   alias dot='git --git-dir=$HOME/.cfg/ --work-tree=$HOME'
 
