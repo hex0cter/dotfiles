@@ -4,9 +4,11 @@ install_dotfiles() {
   git clone --bare https://github.com/hex0cter/dotfiles.git $HOME/.cfg
 
   alias dot='git --git-dir=$HOME/.cfg/ --work-tree=$HOME'
+  dot config --local status.showUntrackedFiles no
 
-  mkdir -p .config-backup
-  dot checkout 2>&1 | egrep "\s+\." | awk {'print $1'} | xargs -I{} mv {} .config-backup/{}
+  mkdir -p .cfg-backup
+  dot checkout 2>&1 | egrep "\s+\." | awk {'print $1'} | xargs -I{} mv {} .cfg-backup/{}
+  dot checkout
 }
 
 install_zsh() {
