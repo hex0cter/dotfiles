@@ -10,7 +10,13 @@ install_dotfiles() {
 }
 
 install_zsh() {
-  sh -c "$(wget https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh -O -)"
+  if [ -d $HOME/.oh-my-zsh ]
+  then
+    cd $HOME/.oh-my-zsh
+    git pull
+  else
+    sh -c "$(wget https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh -O -)"
+  fi
 }
 
 install_linux() {
