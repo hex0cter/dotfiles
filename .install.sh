@@ -18,6 +18,25 @@ install_dotfiles() {
   fi
 }
 
+install_pyenv() {
+  [ ! -d ~/.pyenv ] && git clone https://github.com/pyenv/pyenv.git ~/.pyenv
+}
+
+install_fzf() {
+  git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
+  ~/.fzf/install
+}
+
+install_autojump() {
+  git clone git://github.com/wting/autojump.git ~/.autojump
+  cd ~/.autojump && ./install.py
+}
+
+install_pistol() {
+  sudo apt -y libmagic-dev
+  env GO111MODULE=on go get -u github.com/doronbehar/pistol/cmd/pistol
+}
+
 install_zsh() {
   if [ -d $HOME/.oh-my-zsh ]
   then
@@ -34,19 +53,20 @@ install_zsh() {
 
 install_linux() {
   sudo apt update
-  sudo apt -y install git tmux zsh
-  echo "install linux"
-
-  [ ! -d ~/.pyenv ] && git clone https://github.com/pyenv/pyenv.git ~/.pyenv
+  sudo apt -y install git tmux zsh golang
 
   install_dotfiles
   install_zsh
+
+  install_pyenv
+  install_fzf
+  install_autojump
+  install_pistol
 }
 
 install_macos() {
   brew update
-  brew install git tmux zsh pyenv
-  echo "install macos"
+  brew install git tmux zsh go pyenv fzf autojump
 
   install_dotfiles
   install_zsh
