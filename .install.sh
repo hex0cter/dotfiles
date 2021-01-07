@@ -6,13 +6,15 @@ install_dotfiles() {
   if [ ! -d $HOME/.cfg ]
   then
     git clone --bare https://github.com/hex0cter/dotfiles.git $HOME/.cfg
+
+    $dot config --local status.showUntrackedFiles no
+
+    mkdir -p .cfg-backup
+    $dot checkout 2>&1 | egrep "\s+\." | awk {'print $1'} | xargs -I{} mv {} .cfg-backup/{}
+    $dot checkout
+  else
+    $dot pull
   fi
-
-  $dot config --local status.showUntrackedFiles no
-
-  mkdir -p .cfg-backup
-  $dot checkout 2>&1 | egrep "\s+\." | awk {'print $1'} | xargs -I{} mv {} .cfg-backup/{}
-  $dot checkout
 }
 
 install_zsh() {
