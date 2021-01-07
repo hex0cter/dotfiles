@@ -25,7 +25,7 @@ install_zsh() {
     cd $HOME/.oh-my-zsh
     git pull
   else
-    sh -c "$(wget https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh -O -)"
+    sh -c "$(wget https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh -O -) --keep-zshrc"
   fi
 }
 
