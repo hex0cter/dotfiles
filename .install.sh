@@ -37,13 +37,15 @@ install_linux() {
   sudo apt -y install git tmux zsh
   echo "install linux"
 
+  git clone https://github.com/pyenv/pyenv.git ~/.pyenv
+
   install_dotfiles
   install_zsh
 }
 
 install_macos() {
   brew update
-  brew install git tmux zsh
+  brew install git tmux zsh pyenv
   echo "install macos"
 
   install_dotfiles
