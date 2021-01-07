@@ -15,8 +15,6 @@ install_dotfiles() {
   else
     $dot pull
   fi
-
-  grep "alias dot" ${HOME}/.zshrc || echo 'alias dot="git --git-dir=$HOME/.cfg/ --work-tree=$HOME"' >> ${HOME}/.zshrc
 }
 
 install_zsh() {
