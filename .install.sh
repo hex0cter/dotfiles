@@ -3,11 +3,8 @@
 install_dotfiles() {
   alias dot='git --git-dir=$HOME/.cfg/ --work-tree=$HOME'
 
-  if [ -d $HOME/.cfg ]
+  if [ ! -d $HOME/.cfg ]
   then
-    cd $HOME/.cfg
-    dot pull
-  else
     git clone --bare https://github.com/hex0cter/dotfiles.git $HOME/.cfg
   fi
 
