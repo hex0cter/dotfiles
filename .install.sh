@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 install_dotfiles() {
-  dot='git --git-dir=$HOME/.cfg/ --work-tree=$HOME'
+  dot="git --git-dir=$HOME/.cfg/ --work-tree=$HOME"
 
   if [ ! -d $HOME/.cfg ]
   then
