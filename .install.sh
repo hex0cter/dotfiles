@@ -1,7 +1,13 @@
 #!/usr/bin/env bash
 
 install_dotfiles() {
-  git clone --bare https://github.com/hex0cter/dotfiles.git $HOME/.cfg
+  if [ -d $HOME/.cfg ]
+  then
+    cd $HOME/.cfg
+    git pull
+  else
+    git clone --bare https://github.com/hex0cter/dotfiles.git $HOME/.cfg
+  fi
 
   alias dot='git --git-dir=$HOME/.cfg/ --work-tree=$HOME'
   dot config --local status.showUntrackedFiles no
