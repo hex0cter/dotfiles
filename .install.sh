@@ -37,7 +37,7 @@ install_linux() {
   sudo apt -y install git tmux zsh
   echo "install linux"
 
-  git clone https://github.com/pyenv/pyenv.git ~/.pyenv
+  [ ! -d ~/.pyenv ] && git clone https://github.com/pyenv/pyenv.git ~/.pyenv
 
   install_dotfiles
   install_zsh
