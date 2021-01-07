@@ -2,6 +2,7 @@
 
 install_dotfiles() {
   dot="git --git-dir=$HOME/.cfg/ --work-tree=$HOME"
+  mkdir -p $HOME/.cfg-backup
 
   if [ ! -d $HOME/.cfg ]
   then
@@ -9,11 +10,10 @@ install_dotfiles() {
 
     $dot config --local status.showUntrackedFiles no
 
-    mkdir -p .cfg-backup
-    $dot checkout 2>&1 | egrep "\s+\." | awk {'print $1'} | xargs -I{} mv {} .cfg-backup/{}
+    $dot checkout 2>&1 | egrep "\s+\." | awk {'print $1'} | xargs -I{} mv {} $HOME/.cfg-backup/{}
     $dot checkout
   else
-    $dot checkout 2>&1 | egrep "\s+\." | awk {'print $1'} | xargs -I{} mv {} .cfg-backup/{}
+    $dot pull 2>&1 | egrep "\s+\." | awk {'print $1'} | xargs -I{} mv {} $HOME/.cfg-backup/{}
     $dot pull
   fi
 }
