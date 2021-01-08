@@ -14,7 +14,7 @@ c() {
 
 # Use fzf for fuzzy history search
 h() {
-  local cmd=$(history -n | tail -r | fzf)
+  local cmd=$(history -n | tac | fzf)
   echo $cmd
   print -s "$cmd"
   eval $cmd

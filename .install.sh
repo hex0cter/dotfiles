@@ -39,13 +39,11 @@ install_fzf() {
 }
 
 install_autojump() {
-  if [ -d ~/.autojump ]
+  if [ ! -d ~/.autojump ]
   then
-    cd ~/.autojump && git pull && cd
-  else
     git clone git://github.com/wting/autojump.git ~/.autojump
-    cd ~/.autojump && sudo ./install.py --dest /usr/local && cd
   fi
+  cd ~/.autojump && sudo ./install.py --dest /usr/local && cd
 }
 
 install_pistol() {
