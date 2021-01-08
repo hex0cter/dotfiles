@@ -49,6 +49,9 @@ install_autojump() {
   then
     git clone git://github.com/wting/autojump.git ~/.autojump
   fi
+
+  export PYENV_ROOT="$HOME/.pyenv"
+  export PATH="$PYENV_ROOT/bin:$PATH"
   cd ~/.autojump && sudo ./install.py --dest /usr/local && cd
 }
 
