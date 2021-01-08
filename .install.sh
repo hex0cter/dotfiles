@@ -55,6 +55,7 @@ install_pistol() {
 
 install_nvm() {
   wget -qO- https://raw.githubusercontent.com/nvm-sh/nvm/v0.37.2/install.sh | bash
+  cd ~/.nvm && . ./nvm.sh && cd -
   nvm install node # "node" is an alias for the latest version
   nvm use node
 }
