@@ -30,7 +30,7 @@ install_pyenv() {
   export PATH="$PYENV_ROOT/bin:$PATH"
 
   latest=$(pyenv install --list | grep -v dev | grep "^ *3." | tail -1 | sed -e 's/ //g')
-  pyenv install ${latest}
+  pyenv install ${latest} || true
   pyenv global ${latest}
 }
 
