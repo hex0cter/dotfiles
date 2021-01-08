@@ -19,17 +19,32 @@ install_dotfiles() {
 }
 
 install_pyenv() {
-  [ ! -d ~/.pyenv ] && git clone https://github.com/pyenv/pyenv.git ~/.pyenv
+  if [ -d ~/.pyenv ]
+  then
+    cd ~/.pyenv && git pull && cd
+  else
+    git clone https://github.com/pyenv/pyenv.git ~/.pyenv
+  fi
 }
 
 install_fzf() {
-  git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
+  if [ -d ~/.fzf ]
+  then
+    cd ~/.fzf && git pull && cd
+  else
+    git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
+  fi
   ~/.fzf/install
 }
 
 install_autojump() {
-  git clone git://github.com/wting/autojump.git ~/.autojump
-  cd ~/.autojump && ./install.py
+  if [ -d ~/.autojump ]
+  then
+    cd ~/.autojump && git pull && cd
+  else
+    git clone git://github.com/wting/autojump.git ~/.autojump
+    cd ~/.autojump && ./install.py && cd
+  fi
 }
 
 install_pistol() {
