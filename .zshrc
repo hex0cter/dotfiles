@@ -107,7 +107,6 @@ fi
 [ -f $HOME/.asdf/asdf.sh ] && source $HOME/.asdf/asdf.sh
 [ -f $HOME/.asdf/completions/asdf.bash ] && source $HOME/.asdf/completions/asdf.bash
 
-
 export SDKMAN_DIR="$HOME/.sdkman"
 [ -s "$HOME/.sdkman/bin/sdkman-init.sh" ] && source "$HOME/.sdkman/bin/sdkman-init.sh"
 [ -s "$HOME/.nvm/nvm.sh" ] && source "$HOME/.nvm/nvm.sh"

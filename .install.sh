@@ -44,13 +44,23 @@ install_autojump() {
     cd ~/.autojump && git pull && cd
   else
     git clone git://github.com/wting/autojump.git ~/.autojump
-    cd ~/.autojump && ./install.py && cd
+    cd ~/.autojump && ./install.py --dest /usr/local && cd
   fi
 }
 
 install_pistol() {
   sudo apt install -y libmagic-dev
   env GO111MODULE=on go get -u github.com/doronbehar/pistol/cmd/pistol
+}
+
+install_nvm() {
+  wget -qO- https://raw.githubusercontent.com/nvm-sh/nvm/v0.37.2/install.sh | bash
+  nvm install node # "node" is an alias for the latest version
+  nvm use node
+}
+
+install_trash() {
+  npm install --global trash
 }
 
 install_zsh() {
@@ -78,6 +88,7 @@ install_linux() {
   install_fzf
   install_autojump
   install_pistol
+  install_nvm
 }
 
 install_macos() {
