@@ -1,4 +1,5 @@
 #!/usr/bin/env bash
+set -e
 
 install_dotfiles() {
   dot="git --git-dir=$HOME/.cfg/ --work-tree=$HOME"
@@ -107,3 +108,5 @@ elif [ "$os" == "Darwin" ]
 then
   install_macos
 fi
+
+echo "Now you can start a fresh terminal or run zsh. 🎉🌈🌈"
