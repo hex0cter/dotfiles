@@ -10,11 +10,8 @@ install_dotfiles() {
     git clone --bare https://github.com/hex0cter/dotfiles.git $HOME/.cfg
 
     $dot config --local status.showUntrackedFiles no
-
-    $dot checkout 2>&1 | egrep "\s+\." | awk {'print $1'} | xargs -I{} mv {} $HOME/.cfg-backup/{}
     $dot checkout .
   else
-    $dot pull 2>&1 | egrep "\s+\." | awk {'print $1'} | xargs -I{} mv {} $HOME/.cfg-backup/{}
     $dot checkout .
     $dot pull
   fi
