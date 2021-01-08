@@ -52,6 +52,10 @@ install_pistol() {
   env GO111MODULE=on go get -u github.com/doronbehar/pistol/cmd/pistol
 }
 
+install_if() {
+  env CGO_ENABLED=0 GO111MODULE=on go get -u -ldflags="-s -w" github.com/gokcehan/lf
+}
+
 install_nvm() {
   wget -qO- https://raw.githubusercontent.com/nvm-sh/nvm/v0.37.2/install.sh | bash
   cd ~/.nvm && . ./nvm.sh && cd -
@@ -88,6 +92,7 @@ install_linux() {
   install_fzf
   install_autojump
   install_pistol
+  install_if
   install_nvm
   install_trash
 }
@@ -109,4 +114,4 @@ then
   install_macos
 fi
 
-echo "Now you can start a fresh terminal or run zsh. 🎉🌈🌈"
+echo "🎉 Now you can restart your terminal or just run 'zsh' below. 🌈🌈"
