@@ -51,7 +51,7 @@ install_autojump() {
   fi
 
   export PYENV_ROOT="$HOME/.pyenv"
-  export PATH="$PYENV_ROOT/bin:$PATH"
+  export PATH="$PYENV_ROOT/shims:$PATH"
   cd ~/.autojump && sudo ./install.py --dest /usr/local && cd
 }
 
