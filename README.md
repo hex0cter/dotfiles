@@ -4,11 +4,11 @@ This repository represents my dot files. It works on both Debian based Linux and
 ## Installation
 You can install this repository using `curl`:
 ```bash
-curl -fsSL https://raw.githubusercontent.com/hex0cter/dotfiles/master/.install.sh | bash
+bash -c "$(curl -fsSL https://raw.githubusercontent.com/hex0cter/dotfiles/master/.install.sh)"
 ```
 or using `wget`:
 ```bash
-wget https://raw.githubusercontent.com/hex0cter/dotfiles/master/.install.sh -O - | bash
+bash -c "$(wget https://raw.githubusercontent.com/hex0cter/dotfiles/master/.install.sh -O -)"
 ```
 
 
