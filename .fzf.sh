@@ -25,7 +25,6 @@ h() {
 export FZF_DEFAULT_OPTS='--height 90% --exact --layout=reverse --border --cycle'
 fd="fd" && which fdfind > /dev/null && fd="fdfind"
 export FZF_DEFAULT_COMMAND="$fd --type f --follow --exclude '*.pyc' --exclude node_modules" # add --hidden to include hidden files
-which batcat > /dev/null && alias bat="batcat"
 
 # alias f="fzf --preview '([[ -f {} ]] && (bat --style=numbers --color=always {} || cat {})) || ([[ -d {} ]] && (tree -C {} | less)) || echo {} 2> /dev/null'"
 alias f="fzf --preview '([[ -f {} ]] && (pistol {} || cat {})) || ([[ -d {} ]] && (tree -C {} | less)) || echo {} '"

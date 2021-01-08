@@ -89,7 +89,8 @@ install_zsh() {
 
 install_linux() {
   sudo apt update
-  sudo apt -y install git tmux zsh golang python-is-python2 python3 fd-find tree
+  sudo apt -y install git tmux zsh golang python-is-python2 python3 fd-find tree bat
+  sudo ln -s /usr/bin/batcat /usr/bin/bat
 
   install_dotfiles
   install_zsh
