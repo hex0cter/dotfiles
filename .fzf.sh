@@ -23,7 +23,7 @@ h() {
 
 # Use fzf for file discovery, requires fd
 export FZF_DEFAULT_OPTS='--height 90% --exact --layout=reverse --border --cycle'
-[ ! "$(which fd)" ] && alias fd=fdfind
+which fdfind && alias fd=fdfind
 export FZF_DEFAULT_COMMAND='fd --type f --follow --exclude "*.pyc" --exclude node_modules' # add --hidden to include hidden files
 
 # alias f="fzf --preview '([[ -f {} ]] && (bat --style=numbers --color=always {} || cat {})) || ([[ -d {} ]] && (tree -C {} | less)) || echo {} 2> /dev/null'"
