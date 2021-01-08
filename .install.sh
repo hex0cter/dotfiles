@@ -1,5 +1,4 @@
 #!/usr/bin/env bash
-set -e
 
 install_dotfiles() {
   dot="git --git-dir=$HOME/.cfg/ --work-tree=$HOME"
