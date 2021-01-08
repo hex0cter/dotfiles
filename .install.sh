@@ -48,7 +48,7 @@ install_autojump() {
 }
 
 install_pistol() {
-  sudo apt -y libmagic-dev
+  sudo apt install -y libmagic-dev
   env GO111MODULE=on go get -u github.com/doronbehar/pistol/cmd/pistol
 }
 
