@@ -66,7 +66,10 @@ install_trash() {
 }
 
 config_tmux() {
-  git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
+  if [ ! -d ~/.tmux/plugins/tpm ]
+  then
+    git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
+  fi
   ~/.tmux/plugins/tpm/bin/install_plugins
 }
 
