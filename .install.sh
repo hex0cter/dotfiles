@@ -50,9 +50,11 @@ install_autojump() {
     git clone git://github.com/wting/autojump.git ~/.autojump
   fi
 
-  export PYENV_ROOT="$HOME/.pyenv"
-  export PATH="$PYENV_ROOT/shims:$PATH"
-  cd ~/.autojump && sudo ./install.py --dest /usr/local && cd
+  # export PYENV_ROOT="$HOME/.pyenv"
+  # export PATH="$PYENV_ROOT/shims:$PATH"
+  echo $PATH
+  python --version
+  cd ~/.autojump && sudo $(which python) ./install.py --dest /usr/local && cd
 }
 
 install_pistol() {
