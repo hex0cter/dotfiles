@@ -65,6 +65,11 @@ install_trash() {
   npm install --global trash
 }
 
+config_tmux() {
+  git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
+  ~/.tmux/plugins/tpm/bin/install_plugins
+}
+
 install_zsh() {
   if [ -d $HOME/.oh-my-zsh ]
   then
@@ -93,6 +98,8 @@ install_linux() {
   install_if
   install_nvm
   install_trash
+
+  config_tmux
 }
 
 install_macos() {
@@ -101,6 +108,8 @@ install_macos() {
 
   install_dotfiles
   install_zsh
+
+  config_tmux
 }
 
 os=$(uname)
