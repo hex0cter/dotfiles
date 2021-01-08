@@ -61,6 +61,10 @@ install_if() {
   env CGO_ENABLED=0 GO111MODULE=on go get -u -ldflags="-s -w" github.com/gokcehan/lf
 }
 
+install_imgcat() {
+  pip install imgcat
+}
+
 install_nvm() {
   wget -qO- https://raw.githubusercontent.com/nvm-sh/nvm/v0.37.2/install.sh | bash
   cd ~/.nvm && . ./nvm.sh && cd -
@@ -109,6 +113,7 @@ install_linux() {
   install_if
   install_nvm
   install_trash
+  install_imgcat
 
   config_tmux
 }
