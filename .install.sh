@@ -12,6 +12,7 @@ install_dotfiles() {
     $dot config --local status.showUntrackedFiles no
     $dot checkout
   else
+    $dot restore --staged .
     $dot checkout .
     $dot pull
   fi
