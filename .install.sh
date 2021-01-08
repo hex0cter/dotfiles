@@ -107,7 +107,7 @@ install_linux() {
 
 install_macos() {
   brew update
-  brew install git tmux zsh go pyenv fzf autojump
+  brew install git tmux zsh go pyenv fzf autojump bat
 
   install_dotfiles
   install_zsh
