@@ -102,7 +102,7 @@ install_zsh() {
 
 install_linux() {
   sudo apt update
-  sudo apt -y install git tmux zsh golang fd-find tree bat libssl-dev libffi-dev libbz2-dev libreadline-dev libsqlite3-dev
+  sudo apt -y install build-essential git tmux zsh golang fd-find tree bat libssl-dev libffi-dev libbz2-dev libreadline-dev libsqlite3-dev
   [ ! -x /usr/bin/bat ] && sudo ln -s /usr/bin/batcat /usr/bin/bat
 
   install_dotfiles
