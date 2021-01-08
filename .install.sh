@@ -44,7 +44,7 @@ install_autojump() {
     cd ~/.autojump && git pull && cd
   else
     git clone git://github.com/wting/autojump.git ~/.autojump
-    cd ~/.autojump && ./install.py --dest /usr/local && cd
+    cd ~/.autojump && sudo ./install.py --dest /usr/local && cd
   fi
 }
 
@@ -90,6 +90,7 @@ install_linux() {
   install_autojump
   install_pistol
   install_nvm
+  install_trash
 }
 
 install_macos() {
