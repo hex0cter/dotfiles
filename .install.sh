@@ -27,7 +27,7 @@ install_pyenv() {
   fi
 
   export PYENV_ROOT="$HOME/.pyenv"
-  export PATH="$PYENV_ROOT/bin:$PATH"
+  export PATH="$PYENV_ROOT/bin:$PYENV_ROOT/shims:$PATH"
 
   latest=$(pyenv install --list | grep -v dev | grep "^ *3." | tail -1 | sed -e 's/ //g')
   pyenv install ${latest} || true
