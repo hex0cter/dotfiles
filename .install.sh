@@ -2,7 +2,6 @@
 
 install_dotfiles() {
   dot="git --git-dir=$HOME/.cfg/ --work-tree=$HOME"
-  mkdir -p $HOME/.cfg-backup
 
   if [ ! -d $HOME/.cfg ]
   then
