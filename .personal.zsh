@@ -53,10 +53,9 @@ export NVM_DIR="$HOME/.nvm"
 [ -f $HOME/.fzf.sh ] && source $HOME/.fzf.sh
 [ -f $HOME/.fzf.zsh ] && source $HOME/.fzf.zsh
 
-[ -f $HOME/.secret.sh ] && source $HOME/.secret.sh
 [ -f $HOME/.config/lf/lfcd.sh ] && source $HOME/.config/lf/lfcd.sh
 [ -f $HOME/.config/lf/env.sh ] && source $HOME/.config/lf/env.sh
-[ -f $HOME/.local.zsh ] && source $HOME/.local.zsh
+[ -f $HOME/.local.sh ] && source $HOME/.local.sh
 [ -f $HOME/.asdf/asdf.sh ] && source $HOME/.asdf/asdf.sh
 [ -f $HOME/.asdf/completions/asdf.bash ] && source $HOME/.asdf/completions/asdf.bash
 
