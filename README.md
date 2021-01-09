@@ -14,14 +14,16 @@ This repository represents my dot files. It works on both Debian based Linux and
 * other utilities, such as imgcat, yarn, trash, etc.
 
 ## Installation
-You can install this repository using `curl`:
-```bash
-bash -c "$(curl -fsSL https://raw.githubusercontent.com/hex0cter/dotfiles/master/.install.sh)"
-```
-or using `wget`:
+You can install this repository using `wget`:
 ```bash
 bash -c "$(wget https://raw.githubusercontent.com/hex0cter/dotfiles/master/.install.sh -O -)"
 ```
+or using `curl`:
+```bash
+bash -c "$(curl -fsSL https://raw.githubusercontent.com/hex0cter/dotfiles/master/.install.sh)"
+```
+
+You might need to fill in your sudo password during software installation and changing shell.
 
 ## How to use
 For file browsing, type `lf`.
