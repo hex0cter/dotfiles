@@ -128,7 +128,6 @@ install_linux() {
   [ ! -x /usr/bin/bat ] && sudo ln -s /usr/bin/batcat /usr/bin/bat
 
   install_dotfiles
-  install_zsh
 
   install_pyenv
   install_fzf
@@ -140,6 +139,8 @@ install_linux() {
   install_yarn
   install_imgcat
 
+  install_zsh
+
   config_tmux
 }
 
@@ -148,6 +149,7 @@ install_macos() {
   brew install git tmux zsh go pyenv fzf autojump bat
 
   install_dotfiles
+
   install_zsh
 
   config_tmux
