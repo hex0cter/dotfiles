@@ -72,8 +72,12 @@ install_nvm() {
   nvm use node
 }
 
+install_yarn() {
+  npm install --global yarn
+}
+
 install_trash() {
-  npm install --global trash
+  npm install --global trash-cli
 }
 
 config_tmux() {
@@ -117,7 +121,10 @@ install_linux() {
     zlib1g-dev \
     highlight \
     unrar \
-    mediainfo
+    mediainfo \
+    ncdu \
+    curl
+
   [ ! -x /usr/bin/bat ] && sudo ln -s /usr/bin/batcat /usr/bin/bat
 
   install_dotfiles
@@ -130,6 +137,7 @@ install_linux() {
   install_if
   install_nvm
   install_trash
+  install_yarn
   install_imgcat
 
   config_tmux
