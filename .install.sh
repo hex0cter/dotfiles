@@ -9,7 +9,7 @@ install_dotfiles() {
     git clone --bare https://github.com/hex0cter/dotfiles.git $HOME/.cfg
 
     $dot config --local status.showUntrackedFiles no
-    $dot checkout .
+    $dot checkout --force
   else
     $dot restore --staged .
     $dot checkout .
