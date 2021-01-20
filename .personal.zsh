@@ -43,8 +43,11 @@ t() {
 }
 
 cd() {
-   builtin cd "$1"
-   builtin cd $(readlink $PWD)
+   if [ "$1" != "" ]; then
+     builtin cd $(realpath $1)
+   else
+     builtin cd
+   fi
 }
 
 PROMPT='[%D{%K:%M:%S}] ${ret_status}%{$fg_bold[green]%}%p %{$fg[green]%}%~ %{$fg_bold[blue]%}$(git_prompt_info)%{$fg_bold[blue]%} % %{$reset_color%}${NEWLINE}$ '
