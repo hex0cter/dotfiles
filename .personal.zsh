@@ -42,6 +42,11 @@ t() {
   tmux attach-session -t local || tmux new-session -s local
 }
 
+cd() {
+   builtin cd "$1"
+   builtin cd $(readlink $PWD)
+}
+
 PROMPT='[%D{%K:%M:%S}] ${ret_status}%{$fg_bold[green]%}%p %{$fg[green]%}%~ %{$fg_bold[blue]%}$(git_prompt_info)%{$fg_bold[blue]%} % %{$reset_color%}${NEWLINE}$ '
 
 export NVM_DIR="$HOME/.nvm"
@@ -61,7 +66,6 @@ export NVM_DIR="$HOME/.nvm"
 
 export SDKMAN_DIR="$HOME/.sdkman"
 [ -s "$HOME/.sdkman/bin/sdkman-init.sh" ] && source "$HOME/.sdkman/bin/sdkman-init.sh"
-[ -s "$HOME/.nvm/nvm.sh" ] && source "$HOME/.nvm/nvm.sh"
 
 # tabtab source for packages
 # uninstall by removing these lines
