@@ -24,6 +24,8 @@ install_dotfiles() {
 }
 
 install_pyenv() {
+  echo "::: Installing pyenv :::"
+
   if [ -d ~/.pyenv ]
   then
     cd ~/.pyenv && git pull && cd
@@ -40,6 +42,8 @@ install_pyenv() {
 }
 
 install_fzf() {
+  echo "::: Installing fzf :::"
+
   if [ -d ~/.fzf ]
   then
     cd ~/.fzf && git pull && cd
@@ -50,6 +54,8 @@ install_fzf() {
 }
 
 install_autojump() {
+  echo "::: Installing autojump :::"
+
   if [ ! -d ~/.autojump ]
   then
     git clone git://github.com/wting/autojump.git ~/.autojump
@@ -60,19 +66,25 @@ install_autojump() {
 }
 
 install_pistol() {
+  echo "::: Installing pistol :::"
+
   sudo apt install -y libmagic-dev
   env GO111MODULE=on go get -u github.com/doronbehar/pistol/cmd/pistol
 }
 
 install_if() {
+  echo "::: Installing if :::"
   env CGO_ENABLED=0 GO111MODULE=on go get -u -ldflags="-s -w" github.com/gokcehan/lf
 }
 
 install_imgcat() {
+  echo "::: Installing imgcat :::"
   pip install imgcat
 }
 
 install_nvm() {
+  echo "::: Installing nvm :::"
+
   wget -qO- https://raw.githubusercontent.com/nvm-sh/nvm/v0.37.2/install.sh | bash
   cd ~/.nvm && . ./nvm.sh && cd -
   nvm install node # "node" is an alias for the latest version
@@ -80,14 +92,17 @@ install_nvm() {
 }
 
 install_yarn() {
+  echo "::: Installing yarn :::"
   npm install --global yarn
 }
 
 install_trash() {
+  echo "::: Installing trash :::"
   npm install --global trash-cli
 }
 
 config_tmux() {
+  echo "::: Configuring tmux :::"
   if [ ! -d ~/.tmux/plugins/tpm ]
   then
     git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
@@ -96,6 +111,8 @@ config_tmux() {
 }
 
 install_zsh() {
+  echo "::: Installing zsh :::"
+
   if [ -d $HOME/.oh-my-zsh ]
   then
     cd $HOME/.oh-my-zsh
