@@ -6,8 +6,6 @@ dot() {
 }
 
 install_dotfiles() {
-  set -x
-
   if [ ! -d $HOME/.cfg ]
   then
     git clone --bare https://github.com/hex0cter/dotfiles.git $HOME/.cfg
@@ -19,8 +17,6 @@ install_dotfiles() {
     dot checkout .
     dot pull
   fi
-
-  set +x
 }
 
 install_pyenv() {
