@@ -43,6 +43,9 @@ To start or attach to a tmux session, type `t`. Type `ctrl q |` to split the win
 First make an alias of git as
 ```bash
 alias dot="git --git-dir=$HOME/.cfg/ --work-tree=$HOME"
+dot remote set-url origin git@github.com:hex0cter/dotfiles.git # Or your own repository
+dot ...
+dot push
 ```
 
 ## References
