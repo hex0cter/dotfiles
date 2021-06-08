@@ -35,8 +35,18 @@ alias e='emacs -nw'
 alias yi='yarn install'
 alias ys='yarn start'
 alias lg='lazygit'
-alias code="open --new -a 'Visual Studio Code' --args \$PWD"
-alias py="open --new -a 'PyCharm' --args \$PWD"
+
+[ -d "/Applications/Code.app" ] && VSCODE_PATH="Code"
+[ -d "/Applications/VSCode.app" ] && VSCODE_PATH="VSCode"
+[ -d "/Applications/Visual Studio Code.app" ] && VSCODE_PATH="Visual Studio Code"
+[ -n "$VSCODE_PATH" ] && alias code="open --new -a '$VSCODE_PATH' --args \$PWD"
+
+[ -d "/Applications/PyCharm.app" ] && PYCHARM_PATH="PyCharm"
+[ -d "/Applications/PyCharm CE.app" ] && PYCHARM_PATH="PyCharm CE"
+[ -n "$PYCHARM_PATH" ] && alias py="open --new -a '$PYCHARM_PATH' --args \$PWD"
+
+alias dot="git --git-dir=$HOME/.cfg/ --work-tree=$HOME"
+
 
 t() {
   tmux attach-session -t local || tmux new-session -s local

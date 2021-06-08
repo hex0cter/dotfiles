@@ -38,5 +38,12 @@ To start or attach to a tmux session, type `t`. Type `ctrl q |` to split the win
 
 `rm` will be aliased to `trash`.
 
+## How to make a contribution?
+
+First make an alias of git as
+```bash
+alias dot="git --git-dir=$HOME/.cfg/ --work-tree=$HOME"
+```
+
 ## References
 * https://www.atlassian.com/git/tutorials/dotfiles
