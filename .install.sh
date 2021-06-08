@@ -64,8 +64,6 @@ install_autojump() {
 
 install_pistol() {
   echo "::: Installing pistol :::"
-
-  sudo apt install -y libmagic-dev
   env GO111MODULE=on go get -u github.com/doronbehar/pistol/cmd/pistol
 }
 
@@ -145,7 +143,8 @@ install_linux() {
     unrar \
     mediainfo \
     ncdu \
-    curl
+    curl \
+    libmagic-dev
 
   [ ! -x /usr/bin/bat ] && sudo ln -s /usr/bin/batcat /usr/bin/bat
 
@@ -173,6 +172,7 @@ install_macos() {
   install_dotfiles
   install_pyenv
   install_fzf
+  install_pistol
   install_if
   install_nvm
   install_trash
