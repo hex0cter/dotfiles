@@ -165,3 +165,4 @@ then
 fi
 
 echo "🎉 Now you can restart your terminal or just run 'zsh' below. 🌈🌈"
+echo "Please don't forget to customize your $HOME/.gitconfig ..."
