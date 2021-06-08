@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-set -x
+set -e
 
 install_dotfiles() {
   alias dot="git --git-dir=$HOME/.cfg/ --work-tree=$HOME"
