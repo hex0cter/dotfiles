@@ -57,11 +57,9 @@ install_autojump() {
     git clone git://github.com/wting/autojump.git ~/.autojump
   fi
 
-  set -x
   echo $PATH
   touch /usr/local/bin/autojump
   cd ~/.autojump && python ./install.py --dest /usr/local && cd
-  set +x
 }
 
 install_pistol() {
@@ -174,7 +172,6 @@ install_macos() {
   install_dotfiles
   install_pyenv
   install_fzf
-  install_autojump
   install_if
   install_nvm
   install_trash
