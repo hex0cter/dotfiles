@@ -1,9 +1,12 @@
 #!/usr/bin/env bash
 set -e
 
+dot() {
+  git --git-dir=$HOME/.cfg/ --work-tree=$HOME "$@"
+}
+
 install_dotfiles() {
   set -x
-  alias dot="git --git-dir=$HOME/.cfg/ --work-tree=$HOME"
 
   if [ ! -d $HOME/.cfg ]
   then
