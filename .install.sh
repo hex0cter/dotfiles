@@ -15,7 +15,6 @@ install_dotfiles() {
     dot config --local status.showUntrackedFiles no
     dot checkout --force
   else
-    which dot
     dot restore --staged .
     dot checkout .
     dot pull
