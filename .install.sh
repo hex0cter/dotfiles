@@ -1,18 +1,19 @@
 #!/usr/bin/env bash
+set -x
 
 install_dotfiles() {
-  dot="git --git-dir=$HOME/.cfg/ --work-tree=$HOME"
+  alias dot="git --git-dir=$HOME/.cfg/ --work-tree=$HOME"
 
   if [ ! -d $HOME/.cfg ]
   then
     git clone --bare https://github.com/hex0cter/dotfiles.git $HOME/.cfg
 
-    $dot config --local status.showUntrackedFiles no
-    $dot checkout --force
+    dot config --local status.showUntrackedFiles no
+    dot checkout --force
   else
-    $dot restore --staged .
-    $dot checkout .
-    $dot pull
+    dot restore --staged .
+    dot checkout .
+    dot pull
   fi
 }
 
@@ -146,9 +147,16 @@ install_linux() {
 
 install_macos() {
   brew update
-  brew install coreutils git tmux zsh go pyenv fzf autojump bat
+  brew install coreutils git tmux zsh go pyenv fzf autojump bat wget curl
 
   install_dotfiles
+  install_pyenv
+  install_fzf
+  install_autojump
+  install_if
+  install_nvm
+  install_trash
+  install_yarn
 
   install_zsh
 
