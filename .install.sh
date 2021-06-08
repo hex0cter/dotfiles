@@ -168,7 +168,7 @@ install_linux() {
 
 install_macos() {
   brew update
-  brew install coreutils git tmux zsh go pyenv fzf autojump bat wget curl
+  brew install coreutils git tmux zsh go pyenv fzf autojump bat wget curl fd
 
   install_dotfiles
   install_pyenv

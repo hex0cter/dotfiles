@@ -102,3 +102,5 @@ then
 else
   source $ZSH/oh-my-zsh.sh
 fi
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
