@@ -57,8 +57,10 @@ install_autojump() {
     git clone git://github.com/wting/autojump.git ~/.autojump
   fi
 
+  set -x
   echo $PATH
-  cd ~/.autojump && sudo $(which python) ./install.py --dest /usr/local && cd
+  cd ~/.autojump && python ./install.py --dest /usr/local && cd
+  set +x
 }
 
 install_pistol() {
