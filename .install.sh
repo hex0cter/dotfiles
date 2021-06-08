@@ -59,6 +59,7 @@ install_autojump() {
 
   set -x
   echo $PATH
+  touch /usr/local/bin/autojump
   cd ~/.autojump && python ./install.py --dest /usr/local && cd
   set +x
 }
