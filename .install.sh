@@ -2,6 +2,7 @@
 set -e
 
 install_dotfiles() {
+  set -x
   alias dot="git --git-dir=$HOME/.cfg/ --work-tree=$HOME"
 
   if [ ! -d $HOME/.cfg ]
@@ -11,10 +12,13 @@ install_dotfiles() {
     dot config --local status.showUntrackedFiles no
     dot checkout --force
   else
+    which dot
     dot restore --staged .
     dot checkout .
     dot pull
   fi
+
+  set +x
 }
 
 install_pyenv() {
