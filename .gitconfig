@@ -1,9 +1,5 @@
-[user]
-    name = Daniel Han
-    email = hex0cter@gmail.com
 [core]
     editor = vi
-    excludesfile = /Users/daniel.han/.gitignore
 [push]
     default = current
 [alias]
@@ -33,14 +29,6 @@
     program = gpg
 [http]
     sslVerify = false
-[difftool "sourcetree"]
-	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
-	path =
-[mergetool "sourcetree"]
-	cmd = /Applications/Sourcetree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
-	trustExitCode = true
-[commit]
-    template = /Users/daniel.han/.stCommitMsg
 [init]
 	defaultBranch = master
 [filter "lfs"]

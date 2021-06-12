@@ -54,7 +54,7 @@ install_autojump() {
 
   if [ ! -d ~/.autojump ]
   then
-    git clone git://github.com/wting/autojump.git ~/.autojump
+    git clone https://github.com/wting/autojump.git ~/.autojump
   fi
 
   echo $PATH
