@@ -175,7 +175,8 @@ install_linux() {
 install_macos() {
   brew update
   brew install coreutils git tmux zsh go pyenv fzf autojump bat wget curl fd gpg git-crypt libmagic
-
+  brew install rectangle || true
+  brew install alt-tab || true
   install_dotfiles
   install_pyenv
   install_fzf
