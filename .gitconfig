@@ -1,6 +1,3 @@
-[user]
-    name = Daniel Han
-    email = hex0cter@gmail.com
 [core]
     editor = vi
     excludesfile = /Users/daniel.han/.gitignore
