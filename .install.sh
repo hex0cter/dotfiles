@@ -122,6 +122,13 @@ install_zsh() {
   [ ! -d ${ZSH_CUSTOM:=~/.oh-my-zsh/custom}/plugins/zsh-completions ] &&  git clone https://github.com/zsh-users/zsh-completions ${ZSH_CUSTOM:=~/.oh-my-zsh/custom}/plugins/zsh-completions
 }
 
+fix_zsh_permissions() {
+  echo "::: Fix zsh permissions :::"
+
+  chmod 755 /usr/local/share/zsh
+  chmod 755 /usr/local/share/zsh/site-functions
+}
+
 install_linux() {
   sudo apt update
   sudo apt -y install \
@@ -179,6 +186,7 @@ install_macos() {
   install_yarn
 
   install_zsh
+  fix_zsh_permissions
 
   config_tmux
 }
