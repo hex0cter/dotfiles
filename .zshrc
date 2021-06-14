@@ -104,3 +104,4 @@ else
 fi
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+if [ -e /Users/daniel.han/.nix-profile/etc/profile.d/nix.sh ]; then . /Users/daniel.han/.nix-profile/etc/profile.d/nix.sh; fi # added by Nix installer

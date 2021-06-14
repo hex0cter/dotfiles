@@ -47,7 +47,6 @@ alias lg='lazygit'
 
 alias dot="git --git-dir=$HOME/.cfg/ --work-tree=$HOME"
 
-
 t() {
   tmux attach-session -t local || tmux new-session -s local
 }
@@ -56,7 +55,7 @@ cd() {
    if [ "$1" = "-" ]; then
      builtin cd -
    elif [ "$1" != "" ]; then
-     builtin cd $(realpath $1)
+     builtin cd "$(realpath $1)"
    else
      builtin cd
    fi
@@ -85,7 +84,6 @@ export SDKMAN_DIR="$HOME/.sdkman"
 # tabtab source for packages
 # uninstall by removing these lines
 [ -f $HOME/.config/tabtab/__tabtab.zsh ] && source $HOME/.config/tabtab/__tabtab.zsh || true
-[ -e $HOME/.nix-profile/etc/profile.d/nix.sh ] && source $HOME/.nix-profile/etc/profile.d/nix.sh
 
 alias top='htop'
 alias du='ncdu'
