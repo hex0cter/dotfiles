@@ -1,5 +1,6 @@
 [core]
     editor = vi
+    excludesFile = ~/.gitignore_global
 [push]
     default = current
 [alias]
