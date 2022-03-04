@@ -173,7 +173,7 @@ install_linux() {
 }
 
 install_macos() {
-  where brew || /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+  /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
   brew update
   brew install coreutils git tmux zsh go pyenv fzf autojump bat wget curl fd gpg git-crypt libmagic awscli docker pipenv virtualenv libjpeg
   brew install rectangle || true
