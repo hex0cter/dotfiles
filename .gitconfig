@@ -13,6 +13,7 @@
     d = difftool
     sync = !sh -c 'git fetch origin master:master && git merge origin/master && git status'
     set-upstream = !git branch --set-upstream-to=origin/`git symbolic-ref --short HEAD`
+    l = log --graph --abbrev-commit --decorate --oneline --branches --remotes --tags
 [filter "hawser"]
     clean = git hawser clean %f
     smudge = git hawser smudge %f
