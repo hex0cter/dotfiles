@@ -151,6 +151,7 @@ install_linux() {
     mediainfo \
     ncdu \
     curl \
+    silversearcher-ag \
     libmagic-dev
 
   [ ! -x /usr/bin/bat ] && sudo ln -s /usr/bin/batcat /usr/bin/bat
@@ -175,7 +176,8 @@ install_linux() {
 install_macos() {
   /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
   brew update
-  brew install coreutils git tmux zsh go pyenv fzf autojump bat wget curl fd gpg git-crypt libmagic awscli docker pipenv virtualenv libjpeg
+  brew install coreutils git tmux zsh go pyenv fzf autojump bat wget curl fd gpg git-crypt libmagic awscli docker pipenv virtualenv libjpeg the_silver_searcher
+
   brew install rectangle || true
   brew install alt-tab || true
 
