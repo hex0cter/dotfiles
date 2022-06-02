@@ -121,6 +121,8 @@ install_linux() {
   sudo apt -y install \
     build-essential \
     git \
+    git-lfs \
+    git-crypt \
     tmux \
     zsh \
     golang \
@@ -163,7 +165,7 @@ install_linux() {
 install_macos() {
   /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
   brew update
-  brew install coreutils git tmux zsh go pyenv fzf autojump bat wget curl fd gpg git-crypt git-secret libmagic awscli docker pipenv virtualenv libjpeg the_silver_searcher
+  brew install coreutils git tmux zsh go pyenv fzf autojump bat wget curl fd gpg git-crypt git-lfs git-secret libmagic awscli docker pipenv virtualenv libjpeg the_silver_searcher
 
   brew install rectangle || true
   brew install alt-tab || true
