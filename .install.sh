@@ -148,7 +148,7 @@ install_linux() {
 
   install_pyenv
   install_fzf
-  install_pistol
+  # install_pistol
   install_if
   install_nvm
   install_trash
