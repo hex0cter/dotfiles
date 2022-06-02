@@ -49,19 +49,6 @@ install_fzf() {
   ~/.fzf/install
 }
 
-install_autojump() {
-  echo "::: Installing autojump :::"
-
-  if [ ! -d ~/.autojump ]
-  then
-    git clone https://github.com/wting/autojump.git ~/.autojump
-  fi
-
-  echo $PATH
-  touch /usr/local/bin/autojump
-  cd ~/.autojump && python ./install.py --dest /usr/local && cd
-}
-
 install_pistol() {
   echo "::: Installing pistol :::"
   env GO111MODULE=on go get -u github.com/doronbehar/pistol/cmd/pistol
@@ -152,6 +139,7 @@ install_linux() {
     ncdu \
     curl \
     silversearcher-ag \
+    autojump \
     libmagic-dev
 
   [ ! -x /usr/bin/bat ] && sudo ln -s /usr/bin/batcat /usr/bin/bat
@@ -160,7 +148,6 @@ install_linux() {
 
   install_pyenv
   install_fzf
-  install_autojump
   install_pistol
   install_if
   install_nvm
