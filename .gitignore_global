@@ -3,3 +3,5 @@ git-crypt.key
 .DS_Store
 *.log
 .node-gyp/
+.vscode
+.idea

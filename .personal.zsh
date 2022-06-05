@@ -46,6 +46,7 @@ alias lg='lazygit'
 [ -n "$PYCHARM_PATH" ] && alias py="open --new -a '$PYCHARM_PATH' --args \$PWD"
 
 alias dot="git --git-dir=$HOME/.cfg/ --work-tree=$HOME"
+alias download-mp3-from-url="wget -r -np -nc -l 1 -A mp3"
 
 t() {
   tmux attach-session -t local || tmux new-session -s local
@@ -61,13 +62,13 @@ cd() {
    fi
 }
 
-PROMPT='[%D{%K:%M:%S}] ${ret_status}%{$fg_bold[green]%}%p %{$fg[green]%}%~ %{$fg_bold[blue]%}$(git_prompt_info)%{$fg_bold[blue]%} % %{$reset_color%}${NEWLINE}$ '
+PROMPT='[%D{%K:%M:%S}]${ret_status}%{$fg_bold[green]%}%p %{$fg[green]%}%~%{$fg_bold[blue]%}$(git_prompt_info)%{$fg_bold[blue]%} % %{$reset_color%}${NEWLINE}$ '
 
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && source "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && source "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
-[ -s $HOME/.nix-profile/etc/profile.d/nix.sh ] && source $HOME/.nix-profile/etc/profile.d/nix.sh
+# [ -s $HOME/.nix-profile/etc/profile.d/nix.sh ] && source $HOME/.nix-profile/etc/profile.d/nix.sh
 [ -f /usr/local/etc/profile.d/autojump.sh ] && source /usr/local/etc/profile.d/autojump.sh
 [ -f $HOME/.fzf.sh ] && source $HOME/.fzf.sh
 [ -f $HOME/.fzf.zsh ] && source $HOME/.fzf.zsh
@@ -101,4 +102,5 @@ export PATH=$PATH:$ANDROID_HOME/platform-tools:$ANDROID_HOME/emulator
 export PYENV_ROOT="$HOME/.pyenv"
 export PATH="$PYENV_ROOT/bin:$PATH"
 eval "$(pyenv init --path)"
+eval "$(pyenv init -)"
 export PATH=$PYENV_ROOT/versions/$(python -c 'import platform; print(platform.python_version())')/bin:$PATH
