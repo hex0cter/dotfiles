@@ -24,12 +24,6 @@ then
   PATH=$PATH:$HOME/go/bin
 fi
 
-if [ -d $HOME/.asdf ]
-then
-  . $HOME/.asdf/asdf.sh
-  . $HOME/.asdf/completions/asdf.bash
-fi
-
 unsetopt share_history
 alias e='emacs -nw'
 alias yi='yarn install'
@@ -78,8 +72,6 @@ nvm_init() {
 [ -f $HOME/.config/lf/lfcd.sh ] && source $HOME/.config/lf/lfcd.sh
 [ -f $HOME/.config/lf/env.sh ] && source $HOME/.config/lf/env.sh
 [ -f $HOME/.local.sh ] && source $HOME/.local.sh
-[ -f $HOME/.asdf/asdf.sh ] && source $HOME/.asdf/asdf.sh
-[ -f $HOME/.asdf/completions/asdf.bash ] && source $HOME/.asdf/completions/asdf.bash
 
 export SDKMAN_DIR="$HOME/.sdkman"
 [ -s "$HOME/.sdkman/bin/sdkman-init.sh" ] && source "$HOME/.sdkman/bin/sdkman-init.sh"
@@ -87,6 +79,8 @@ export SDKMAN_DIR="$HOME/.sdkman"
 # tabtab source for packages
 # uninstall by removing these lines
 [ -f $HOME/.config/tabtab/__tabtab.zsh ] && source $HOME/.config/tabtab/__tabtab.zsh || true
+
+[ -f /usr/local/opt/asdf/libexec/asdf.sh ] && source /usr/local/opt/asdf/libexec/asdf.sh
 
 alias top='htop'
 alias du='ncdu'
@@ -100,9 +94,3 @@ alias zip-with-password='zip -er'
 
 export ANDROID_HOME=$HOME/Library/Android/sdk
 export PATH=$PATH:$ANDROID_HOME/platform-tools:$ANDROID_HOME/emulator
-
-export PYENV_ROOT="$HOME/.pyenv"
-export PATH="$PYENV_ROOT/bin:$PATH"
-eval "$(pyenv init --path)"
-eval "$(pyenv init -)"
-export PATH=$PYENV_ROOT/versions/$(python -c 'import platform; print(platform.python_version())')/bin:$PATH
