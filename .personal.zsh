@@ -83,7 +83,7 @@ export SDKMAN_DIR="$HOME/.sdkman"
 [ -f /usr/local/opt/asdf/libexec/asdf.sh ] && source /usr/local/opt/asdf/libexec/asdf.sh
 
 alias top='htop'
-alias du='ncdu'
+alias du='dua i'
 alias ccd='cd $HOME/git'
 alias rm='trash' # npm i -g trash-cli
 alias wiki='wikit' # npm i -g wikit
