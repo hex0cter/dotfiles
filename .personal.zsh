@@ -29,6 +29,7 @@ alias e='emacs -nw'
 alias yi='yarn install'
 alias ys='yarn start'
 alias lg='lazygit'
+alias ag='ag --hidden'
 
 [ -d "/Applications/Code.app" ] && VSCODE_PATH="Code"
 [ -d "/Applications/VSCode.app" ] && VSCODE_PATH="VSCode"
@@ -64,6 +65,8 @@ nvm_init() {
     [ -s "$NVM_DIR/nvm.sh" ] && source "$NVM_DIR/nvm.sh"  # This loads nvm
     [ -s "$NVM_DIR/bash_completion" ] && source "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 }
+
+[ -n "$VSCODE_SHELL_INTEGRATION" ] && nvm_init
 
 [ -f /usr/local/etc/profile.d/autojump.sh ] && source /usr/local/etc/profile.d/autojump.sh
 [ -f $HOME/.fzf.sh ] && source $HOME/.fzf.sh

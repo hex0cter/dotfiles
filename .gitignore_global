@@ -5,3 +5,5 @@ git-crypt.key
 .node-gyp/
 .vscode
 .idea
+.python-version
+node_modules
