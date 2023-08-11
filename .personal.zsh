@@ -12,7 +12,7 @@ autoload -Uz compinit && compinit -i
 # Comment out this line in $HOME/.zshrc
 source $ZSH/oh-my-zsh.sh
 
-PATH=/usr/local/sbin:$PATH
+PATH=/usr/local/sbin:$HOME/.cargo/bin:$PATH
 
 if [ -d $HOME/bin ]
 then
@@ -58,7 +58,7 @@ cd() {
 }
 
 # PROMPT='[%D{%K:%M:%S}]${ret_status}%{$fg_bold[green]%}%p %{$fg[green]%}%~%{$fg_bold[blue]%}$(git_prompt_info)%{$fg_bold[blue]%} % %{$reset_color%}${NEWLINE}$ '
-PROMPT='[%D{%K:%M:%S}]${ret_status}%{$fg_bold[green]%} %2d%{$fg_bold[blue]%}$(git_prompt_info)%{$fg_bold[blue]%} %{$reset_color%}${NEWLINE}$ '
+PROMPT='[$(hostname)] [%D{%K:%M:%S}]${ret_status}%{$fg_bold[green]%} %2d%{$fg_bold[blue]%}$(git_prompt_info)%{$fg_bold[blue]%} %{$reset_color%}${NEWLINE}$ '
 
 nvm_init() {
     export NVM_DIR="$HOME/.nvm"

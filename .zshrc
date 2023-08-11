@@ -108,3 +108,5 @@ fi
 
 # End of profiling zsh
 # zprof
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
