@@ -90,8 +90,8 @@ export SDKMAN_DIR="$HOME/.sdkman"
 alias top='htop'
 alias du='dua i'
 alias ccd='cd $HOME/git'
-alias rm='trash' # npm i -g trash-cli
-alias wiki='wikit' # npm i -g wikit
+[[ -z $(which trash) ]] && alias rm='trash' # npm i -g trash-cli
+[[ -z $(which wikit) ]] && alias wiki='wikit' # npm i -g wikit
 alias weat='curl http://wttr.in/'
 alias icat="kitty +kitten icat"
 alias dot="git --git-dir=${HOME}/.cfg/ --work-tree=${HOME}"

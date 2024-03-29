@@ -51,12 +51,12 @@ install_fzf() {
 
 install_pistol() {
   echo "::: Installing pistol :::"
-  env GO111MODULE=on go get -u github.com/doronbehar/pistol/cmd/pistol
+  go install github.com/doronbehar/pistol/cmd/pistol@latest
 }
 
 install_if() {
   echo "::: Installing if :::"
-  env CGO_ENABLED=0 GO111MODULE=on go get -u -ldflags="-s -w" github.com/gokcehan/lf
+  go install -ldflags="-s -w" github.com/gokcehan/lf@latest
 }
 
 install_imgcat() {
@@ -174,7 +174,7 @@ install_macos() {
   install_dotfiles
   install_pyenv
   install_fzf
-  install_pistol
+  # install_pistol
   install_if
   install_nvm
   install_trash
