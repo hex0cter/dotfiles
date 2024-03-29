@@ -1,16 +1,27 @@
 [core]
     editor = vi
     excludesFile = ~/.gitignore_global
+    pager = delta
+[interactive]
+    diffFilter = delta --color-only
+[delta]
+    navigate = true    # use n and N to move between diff sections
+
+    # delta detects terminal colors automatically; set one of these to disable auto-detection
+    # dark = true
+    # light = true
+[merge]
+    conflictstyle = diff3
 [push]
     default = current
 [alias]
     pick = cherry-pick -n -x
+    d = diff --word-diff=color
     hist = log --pretty=oneline
     rename = branch -m
     last = log -1 HEAD
     lasttwo = log -2 HEAD
     switch = checkout
-    d = difftool
     sync = !sh -c 'git fetch origin master:master && git merge origin/master && git status'
     set-upstream = !git branch --set-upstream-to=origin/`git symbolic-ref --short HEAD`
     l = log --graph --abbrev-commit --decorate --oneline --branches --remotes --tags
@@ -22,6 +33,7 @@
     default = current
 	rebase = false
 [diff]
+    colorMoved = default
     tool = vimdiff
 [difftool]
     prompt = false

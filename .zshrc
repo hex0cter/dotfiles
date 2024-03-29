@@ -110,3 +110,4 @@ fi
 # zprof
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+export PATH="/usr/local/opt/ruby/bin:$PATH"

@@ -74,6 +74,8 @@ nvm_init() {
 
 [ -f $HOME/.config/lf/lfcd.sh ] && source $HOME/.config/lf/lfcd.sh
 [ -f $HOME/.config/lf/env.sh ] && source $HOME/.config/lf/env.sh
+[ -f $HOME/.rye/env ] && source "$HOME/.rye/env"
+
 [ -f $HOME/.local.sh ] && source $HOME/.local.sh
 
 export SDKMAN_DIR="$HOME/.sdkman"
@@ -97,3 +99,7 @@ alias zip-with-password='zip -er'
 
 export ANDROID_HOME=$HOME/Library/Android/sdk
 export PATH=$PATH:$ANDROID_HOME/platform-tools:$ANDROID_HOME/emulator
+export GEM_HOME=$HOME/.gem
+export PATH=$GEM_HOME/bin:$PATH
+
+
