@@ -3,6 +3,7 @@ ZSH_THEME="powerlevel10k/powerlevel10k"
 plugins+=(
   zsh-autosuggestions
   zsh-completions
+  zsh-syntax-highlighting
 )
 
 fpath=(~/.zsh/completion $fpath)
