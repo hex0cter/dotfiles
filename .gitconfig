@@ -1,9 +1,9 @@
 [core]
     editor = vi
     excludesFile = ~/.gitignore_global
-    pager = delta
+    pager = diff-so-fancy | less --tabs=4 -RF
 [interactive]
-    diffFilter = delta --color-only
+    diffFilter = diff-so-fancy --patch
 [delta]
     navigate = true    # use n and N to move between diff sections
 
@@ -31,10 +31,13 @@
     required = true
 [pull]
     default = current
-	rebase = false
+    rebase = false
 [diff]
     colorMoved = default
     tool = vimdiff
+[color "diff"]
+    old = red reverse
+    new = green reverse
 [difftool]
     prompt = false
 [lfs "customtransfer.bitbucket-media-api"]
@@ -44,7 +47,7 @@
 [http]
     sslVerify = false
 [init]
-	defaultBranch = master
+    defaultBranch = main
 [filter "lfs"]
 	required = true
 	clean = git-lfs clean -- %f

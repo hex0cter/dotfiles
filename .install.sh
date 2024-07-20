@@ -166,8 +166,7 @@ install_linux() {
 install_macos() {
   /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
   brew update
-  brew install coreutils git tmux zsh go asdf fzf autojump bat wget curl fd gpg git-crypt git-lfs git-secret libmagic awscli docker pipenv virtualenv libjpeg the_silver_searcher htop dua-cli git-delta
-
+  brew install coreutils git tmux zsh go asdf fzf autojump bat wget curl fd gpg git-crypt git-lfs git-secret libmagic awscli docker pipenv virtualenv libjpeg the_silver_searcher htop dua-cli git-delta eza diff-so-fancy  
 
   brew install rectangle || true
   brew install alt-tab || true

@@ -31,6 +31,7 @@ alias yi='yarn install'
 alias ys='yarn start'
 alias lg='lazygit'
 alias ag='ag --hidden'
+alias ls='eza --icons --git-ignore'
 
 [ -d "/Applications/Code.app" ] && VSCODE_PATH="Code"
 [ -d "/Applications/VSCode.app" ] && VSCODE_PATH="VSCode"
