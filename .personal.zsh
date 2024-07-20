@@ -1,4 +1,4 @@
-ZSH_THEME="simple"
+ZSH_THEME="powerlevel10k/powerlevel10k"
 
 plugins+=(
   zsh-autosuggestions
@@ -66,7 +66,14 @@ nvm_init() {
     [ -s "$NVM_DIR/bash_completion" ] && source "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 }
 
+pyenv_init() {
+    export PYENV_ROOT="$HOME/.pyenv"
+    [[ -d $PYENV_ROOT/bin ]] && export PATH="$PYENV_ROOT/bin:$PATH"
+    eval "$(pyenv init -)"
+}
+
 [ -n "$VSCODE_SHELL_INTEGRATION" ] && nvm_init
+which pyenv > /dev/null && pyenv_init
 
 [ -f /usr/local/etc/profile.d/autojump.sh ] && source /usr/local/etc/profile.d/autojump.sh
 [ -f $HOME/.fzf.sh ] && source $HOME/.fzf.sh
@@ -74,7 +81,7 @@ nvm_init() {
 
 [ -f $HOME/.config/lf/lfcd.sh ] && source $HOME/.config/lf/lfcd.sh
 [ -f $HOME/.config/lf/env.sh ] && source $HOME/.config/lf/env.sh
-[ -f $HOME/.rye/env ] && source "$HOME/.rye/env"
+# [ -f $HOME/.rye/env ] && source "$HOME/.rye/env"
 
 [ -f $HOME/.local.sh ] && source $HOME/.local.sh
 
@@ -85,7 +92,7 @@ export SDKMAN_DIR="$HOME/.sdkman"
 # uninstall by removing these lines
 [ -f $HOME/.config/tabtab/__tabtab.zsh ] && source $HOME/.config/tabtab/__tabtab.zsh || true
 
-[ -f /usr/local/opt/asdf/libexec/asdf.sh ] && source /usr/local/opt/asdf/libexec/asdf.sh
+# [ -f /usr/local/opt/asdf/libexec/asdf.sh ] && source /usr/local/opt/asdf/libexec/asdf.sh
 
 alias top='htop'
 alias du='dua i'
