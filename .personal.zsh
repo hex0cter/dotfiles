@@ -4,6 +4,7 @@ plugins+=(
   zsh-autosuggestions
   zsh-completions
   zsh-syntax-highlighting
+  web-search
 )
 
 fpath=(~/.zsh/completion $fpath)
@@ -26,24 +27,14 @@ then
 fi
 
 unsetopt share_history
-alias e='emacs -nw'
-alias yi='yarn install'
-alias ys='yarn start'
-alias lg='lazygit'
-alias ag='ag --hidden'
-alias ls='eza --icons --git-ignore'
 
 [ -d "/Applications/Code.app" ] && VSCODE_PATH="Code"
 [ -d "/Applications/VSCode.app" ] && VSCODE_PATH="VSCode"
 [ -d "/Applications/Visual Studio Code.app" ] && VSCODE_PATH="Visual Studio Code"
 [ -n "$VSCODE_PATH" ] && alias code="open --new -a '$VSCODE_PATH' --args \$PWD"
-
 [ -d "/Applications/PyCharm.app" ] && PYCHARM_PATH="PyCharm"
 [ -d "/Applications/PyCharm CE.app" ] && PYCHARM_PATH="PyCharm CE"
 [ -n "$PYCHARM_PATH" ] && alias py="open --new -a '$PYCHARM_PATH' --args \$PWD"
-
-alias dot="git --git-dir=$HOME/.cfg/ --work-tree=$HOME"
-alias download-links-from-url="wget -r -np -nc -l 0 -A"
 
 t() {
   tmux attach-session -t local || tmux new-session -s local
@@ -80,12 +71,9 @@ which pyenv > /dev/null && pyenv_init
 [ -f /usr/local/etc/profile.d/autojump.sh ] && source /usr/local/etc/profile.d/autojump.sh
 [ -f $HOME/.fzf.sh ] && source $HOME/.fzf.sh
 [ -f $HOME/.fzf.zsh ] && source $HOME/.fzf.zsh
-
 [ -f $HOME/.config/lf/lfcd.sh ] && source $HOME/.config/lf/lfcd.sh
 [ -f $HOME/.config/lf/env.sh ] && source $HOME/.config/lf/env.sh
 # [ -f $HOME/.rye/env ] && source "$HOME/.rye/env"
-
-[ -f $HOME/.local.sh ] && source $HOME/.local.sh
 
 export SDKMAN_DIR="$HOME/.sdkman"
 [ -s "$HOME/.sdkman/bin/sdkman-init.sh" ] && source "$HOME/.sdkman/bin/sdkman-init.sh"
@@ -96,13 +84,20 @@ export SDKMAN_DIR="$HOME/.sdkman"
 
 # [ -f /usr/local/opt/asdf/libexec/asdf.sh ] && source /usr/local/opt/asdf/libexec/asdf.sh
 
-alias top='htop'
-alias du='dua i'
-alias ccd='cd $HOME/git'
+[[ -z $(which htop) ]] && alias top='htop'
+[[ -z $(which du) ]] && alias du='dua i'
 [[ -z $(which trash) ]] && alias rm='trash' # npm i -g trash-cli
 [[ -z $(which wikit) ]] && alias wiki='wikit' # npm i -g wikit
-alias weat='curl http://wttr.in/'
-alias icat="kitty +kitten icat"
+[[ -z $(which kitty) ]] && alias icat="kitty +kitten icat"
+[[ -z $(which eza) ]] && alias ls='eza --icons --git-ignore'
+[[ -z $(which emacs) ]] && alias e='emacs -nw'
+[[ -z $(which lazygit) ]] && alias lg='lazygit'
+
+alias dot="git --git-dir=$HOME/.cfg/ --work-tree=$HOME"
+alias download-links-from-url="wget -r -np -nc -l 0 -A"
+alias ag='ag --hidden'
+alias weather='curl http://wttr.in/'
+alias ccd='cd $HOME/git'
 alias dot="git --git-dir=${HOME}/.cfg/ --work-tree=${HOME}"
 alias zip-with-password='zip -er'
 
@@ -111,4 +106,4 @@ export PATH=$PATH:$ANDROID_HOME/platform-tools:$ANDROID_HOME/emulator
 export GEM_HOME=$HOME/.gem
 export PATH=$GEM_HOME/bin:$PATH
 
-
+[ -f $HOME/.local.sh ] && source $HOME/.local.sh
