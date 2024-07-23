@@ -26,8 +26,6 @@ then
   PATH=$PATH:$HOME/go/bin
 fi
 
-unsetopt share_history
-
 [ -d "/Applications/Code.app" ] && VSCODE_PATH="Code"
 [ -d "/Applications/VSCode.app" ] && VSCODE_PATH="VSCode"
 [ -d "/Applications/Visual Studio Code.app" ] && VSCODE_PATH="Visual Studio Code"
@@ -69,10 +67,13 @@ pyenv_init() {
 which pyenv > /dev/null && pyenv_init
 
 [ -f /usr/local/etc/profile.d/autojump.sh ] && source /usr/local/etc/profile.d/autojump.sh
-[ -f $HOME/.fzf.sh ] && source $HOME/.fzf.sh
 [ -f $HOME/.fzf.zsh ] && source $HOME/.fzf.zsh
 [ -f $HOME/.config/lf/lfcd.sh ] && source $HOME/.config/lf/lfcd.sh
 [ -f $HOME/.config/lf/env.sh ] && source $HOME/.config/lf/env.sh
+
+# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
+[[ -f ~/.p10k.zsh ]] && source ~/.p10k.zsh
+
 # [ -f $HOME/.rye/env ] && source "$HOME/.rye/env"
 
 export SDKMAN_DIR="$HOME/.sdkman"
@@ -103,7 +104,24 @@ alias zip-with-password='zip -er'
 
 export ANDROID_HOME=$HOME/Library/Android/sdk
 export PATH=$PATH:$ANDROID_HOME/platform-tools:$ANDROID_HOME/emulator
+
 export GEM_HOME=$HOME/.gem
 export PATH=$GEM_HOME/bin:$PATH
+
+# pnpm
+export PNPM_HOME="$HOME/Library/pnpm"
+case ":$PATH:" in
+   *":$PNPM_HOME:"*) ;;
+   *) export PATH="$PNPM_HOME:$PATH" ;;
+esac
+# pnpm end
+
+HISTFILE=$HOME/.zsh_history
+HISTSIZE=1000
+SAVEHIST=100000
+setopt appendhistory
+setopt hist_ignore_all_dups
+setopt hist_save_no_dups
+unsetopt share_history
 
 [ -f $HOME/.local.sh ] && source $HOME/.local.sh

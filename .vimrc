@@ -1,5 +1,5 @@
 " Enable line number
-set number
+" set number
 
 " Enable syntax highlighting
 syntax enable
