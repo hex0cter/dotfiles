@@ -63,7 +63,7 @@ pyenv_init() {
     eval "$(pyenv init -)"
 }
 
-[ -n "$VSCODE_SHELL_INTEGRATION" ] && nvm_init
+[[ "$TERM_PROGRAM" == "vscode" ]] && nvm_init
 which pyenv > /dev/null && pyenv_init
 
 [ -f /usr/local/etc/profile.d/autojump.sh ] && source /usr/local/etc/profile.d/autojump.sh
