@@ -1,35 +1,16 @@
-ZSH_THEME="powerlevel10k/powerlevel10k"
+PATH=/usr/local/sbin:$PATH
 
-plugins+=(
-  zsh-autosuggestions
-  zsh-completions
-  zsh-syntax-highlighting
-  web-search
-)
+[[ -d $HOME/bin ]] && PATH=$PATH:$HOME/bin
+[[ -d $HOME/.cargo/bin ]] && PATH=$PATH:$HOME/.cargo/bin
+[[ -d $HOME/.local/bin ]] && PATH=$PATH:$HOME/.local/bin
+[[ -d $HOME/go/bin ]] && PATH=$PATH:$HOME/go/bin
+[[ -d $HOME/.local/share/rye/bin ]] && PATH=$PATH:$HOME/.local/share/rye/bin
 
-fpath=(~/.zsh/completion $fpath)
-
-autoload -Uz compinit && compinit -i
-
-# Comment out this line in $HOME/.zshrc
-source $ZSH/oh-my-zsh.sh
-
-PATH=/usr/local/sbin:$HOME/.cargo/bin:$PATH
-
-if [ -d $HOME/bin ]
-then
-  PATH=$PATH:$HOME/bin
-fi
-
-if [ -d $HOME/go/bin ]
-then
-  PATH=$PATH:$HOME/go/bin
-fi
 
 [ -d "/Applications/Code.app" ] && VSCODE_PATH="Code"
-[ -d "/Applications/VSCode.app" ] && VSCODE_PATH="VSCode"
 [ -d "/Applications/Visual Studio Code.app" ] && VSCODE_PATH="Visual Studio Code"
-[ -n "$VSCODE_PATH" ] && alias code="open --new -a '$VSCODE_PATH' --args \$PWD"
+[ -n "$VSCODE_PATH" ] && alias co="open --new -a '$VSCODE_PATH' --args \$PWD"
+
 [ -d "/Applications/PyCharm.app" ] && PYCHARM_PATH="PyCharm"
 [ -d "/Applications/PyCharm CE.app" ] && PYCHARM_PATH="PyCharm CE"
 [ -n "$PYCHARM_PATH" ] && alias py="open --new -a '$PYCHARM_PATH' --args \$PWD"
@@ -49,7 +30,7 @@ cd() {
 }
 
 # PROMPT='[%D{%K:%M:%S}]${ret_status}%{$fg_bold[green]%}%p %{$fg[green]%}%~%{$fg_bold[blue]%}$(git_prompt_info)%{$fg_bold[blue]%} % %{$reset_color%}${NEWLINE}$ '
-PROMPT='[$(hostname)] [%D{%K:%M:%S}]${ret_status}%{$fg_bold[green]%} %2d%{$fg_bold[blue]%}$(git_prompt_info)%{$fg_bold[blue]%} %{$reset_color%}${NEWLINE}$ '
+# PROMPT='[$(hostname)] [%D{%K:%M:%S}]${ret_status}%{$fg_bold[green]%} %2d%{$fg_bold[blue]%}$(git_prompt_info)%{$fg_bold[blue]%} %{$reset_color%}${NEWLINE}$ '
 
 nvm_init() {
     export NVM_DIR="$HOME/.nvm"
@@ -63,27 +44,14 @@ pyenv_init() {
     eval "$(pyenv init -)"
 }
 
-[[ "$TERM_PROGRAM" == "vscode" ]] && nvm_init
-which pyenv > /dev/null && pyenv_init
+which pyenv >/dev/null && pyenv_init
 
 [ -f /usr/local/etc/profile.d/autojump.sh ] && source /usr/local/etc/profile.d/autojump.sh
 [ -f $HOME/.fzf.zsh ] && source $HOME/.fzf.zsh
 [ -f $HOME/.config/lf/lfcd.sh ] && source $HOME/.config/lf/lfcd.sh
 [ -f $HOME/.config/lf/env.sh ] && source $HOME/.config/lf/env.sh
-
-# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
-[[ -f ~/.p10k.zsh ]] && source ~/.p10k.zsh
-
-# [ -f $HOME/.rye/env ] && source "$HOME/.rye/env"
-
-export SDKMAN_DIR="$HOME/.sdkman"
-[ -s "$HOME/.sdkman/bin/sdkman-init.sh" ] && source "$HOME/.sdkman/bin/sdkman-init.sh"
-
-# tabtab source for packages
-# uninstall by removing these lines
-[ -f $HOME/.config/tabtab/__tabtab.zsh ] && source $HOME/.config/tabtab/__tabtab.zsh || true
-
-# [ -f /usr/local/opt/asdf/libexec/asdf.sh ] && source /usr/local/opt/asdf/libexec/asdf.sh
+[ -f $HOME/.p10k.zsh ] && source $HOME/.p10k.zsh
+[ -f $HOME/.rye/env ] && source "$HOME/.rye/env"
 
 [[ -z $(which htop) ]] && alias top='htop'
 [[ -z $(which du) ]] && alias du='dua i'
@@ -125,3 +93,26 @@ setopt hist_save_no_dups
 unsetopt share_history
 
 [ -f $HOME/.local.sh ] && source $HOME/.local.sh
+
+# Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
+# Initialization code that may require console input (password prompts, [y/n]
+# confirmations, etc.) must go above this block; everything else may go below.
+if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
+  source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
+fi
+
+ZSH_THEME="powerlevel10k/powerlevel10k"
+
+plugins+=(
+  zsh-autosuggestions
+  zsh-completions
+  zsh-syntax-highlighting
+  web-search
+)
+
+fpath=(~/.zsh/completion $fpath)
+
+autoload -Uz compinit && compinit -i
+
+# Comment out this line in $HOME/.zshrc
+source $ZSH/oh-my-zsh.sh
