@@ -1,5 +1,3 @@
-PATH=/usr/local/sbin:$PATH
-
 [[ -d $HOME/bin ]] && PATH=$PATH:$HOME/bin
 [[ -d $HOME/.cargo/bin ]] && PATH=$PATH:$HOME/.cargo/bin
 [[ -d $HOME/.local/bin ]] && PATH=$PATH:$HOME/.local/bin
@@ -50,7 +48,6 @@ which pyenv >/dev/null && pyenv_init
 [ -f $HOME/.fzf.zsh ] && source $HOME/.fzf.zsh
 [ -f $HOME/.config/lf/lfcd.sh ] && source $HOME/.config/lf/lfcd.sh
 [ -f $HOME/.config/lf/env.sh ] && source $HOME/.config/lf/env.sh
-[ -f $HOME/.p10k.zsh ] && source $HOME/.p10k.zsh
 [ -f $HOME/.rye/env ] && source "$HOME/.rye/env"
 
 [[ -z $(which htop) ]] && alias top='htop'
@@ -71,22 +68,21 @@ alias dot="git --git-dir=${HOME}/.cfg/ --work-tree=${HOME}"
 alias zip-with-password='zip -er'
 
 export ANDROID_HOME=$HOME/Library/Android/sdk
-export PATH=$PATH:$ANDROID_HOME/platform-tools:$ANDROID_HOME/emulator
+[[ -d $ANDROID_HOME/platform-tools ]] && PATH=$PATH:$ANDROID_HOME/platform-tools
+[[ -d $ANDROID_HOME/emulator ]] && PATH=$PATH:$ANDROID_HOME/emulator
 
 export GEM_HOME=$HOME/.gem
-export PATH=$GEM_HOME/bin:$PATH
+[[ -d $GEM_HOME/bin ]] && PATH=$GEM_HOME/bin:$PATH
 
-# pnpm
 export PNPM_HOME="$HOME/Library/pnpm"
-case ":$PATH:" in
-   *":$PNPM_HOME:"*) ;;
-   *) export PATH="$PNPM_HOME:$PATH" ;;
-esac
-# pnpm end
+[[ -d $PNPM_HOME ]] && PATH="$PNPM_HOME:$PATH"
+
+export PATH
 
 HISTFILE=$HOME/.zsh_history
 HISTSIZE=1000
 SAVEHIST=100000
+
 setopt appendhistory
 setopt hist_ignore_all_dups
 setopt hist_save_no_dups
@@ -94,16 +90,13 @@ unsetopt share_history
 
 [ -f $HOME/.local.sh ] && source $HOME/.local.sh
 
-# Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
-# Initialization code that may require console input (password prompts, [y/n]
-# confirmations, etc.) must go above this block; everything else may go below.
-if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
-  source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
-fi
-
-ZSH_THEME="powerlevel10k/powerlevel10k"
+ZSH_THEME="robbyrussell"
+ZSH_THEME="geoffgarside"
 
 plugins+=(
+  git
+  docker
+  docker-compose
   zsh-autosuggestions
   zsh-completions
   zsh-syntax-highlighting
