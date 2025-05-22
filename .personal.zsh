@@ -42,7 +42,7 @@ pyenv_init() {
     eval "$(pyenv init -)"
 }
 
-which pyenv >/dev/null && pyenv_init
+# which pyenv >/dev/null && pyenv_init
 
 [ -f /usr/local/etc/profile.d/autojump.sh ] && source /usr/local/etc/profile.d/autojump.sh
 [ -f $HOME/.fzf.zsh ] && source $HOME/.fzf.zsh

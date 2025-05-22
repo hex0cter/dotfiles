@@ -5,6 +5,7 @@
 export PATH=$HOME/bin:/usr/local/bin:/usr/local/sbin:$PATH
 
 export ZSH="$HOME/.oh-my-zsh"
+export DISABLE_AUTO_UPDATE="true"
 
 if [[ -f "$HOME/.personal.zsh" ]]
 then
