@@ -1,6 +1,6 @@
 [[ -d $HOME/bin ]] && PATH=$PATH:$HOME/bin
-[[ -d $HOME/.cargo/bin ]] && PATH=$PATH:$HOME/.cargo/bin
 [[ -d $HOME/.local/bin ]] && PATH=$PATH:$HOME/.local/bin
+[[ -d $HOME/.cargo/bin ]] && PATH=$PATH:$HOME/.cargo/bin
 [[ -d $HOME/go/bin ]] && PATH=$PATH:$HOME/go/bin
 [[ -d $HOME/.local/share/rye/bin ]] && PATH=$PATH:$HOME/.local/share/rye/bin
 
@@ -77,35 +77,8 @@ export GEM_HOME=$HOME/.gem
 export PNPM_HOME="$HOME/Library/pnpm"
 [[ -d $PNPM_HOME ]] && PATH="$PNPM_HOME:$PATH"
 
-export PATH
-
-HISTFILE=$HOME/.zsh_history
-HISTSIZE=1000
-SAVEHIST=100000
-
-setopt appendhistory
-setopt hist_ignore_all_dups
-setopt hist_save_no_dups
-unsetopt share_history
-
 [ -f $HOME/.local.sh ] && source $HOME/.local.sh
-
-ZSH_THEME="robbyrussell"
-ZSH_THEME="geoffgarside"
-
-plugins+=(
-  git
-  docker
-  docker-compose
-  zsh-autosuggestions
-  zsh-completions
-  zsh-syntax-highlighting
-  web-search
-)
 
 fpath=(~/.zsh/completion $fpath)
 
-autoload -Uz compinit && compinit -i
-
-# Comment out this line in $HOME/.zshrc
-source $ZSH/oh-my-zsh.sh
+export PATH
