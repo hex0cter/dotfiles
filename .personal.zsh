@@ -27,6 +27,11 @@ cd() {
    fi
 }
 
+reset-wifi() {
+    networksetup -setnetworkserviceenabled Wi-Fi off
+    networksetup -setnetworkserviceenabled Wi-Fi on
+}
+
 # PROMPT='[%D{%K:%M:%S}]${ret_status}%{$fg_bold[green]%}%p %{$fg[green]%}%~%{$fg_bold[blue]%}$(git_prompt_info)%{$fg_bold[blue]%} % %{$reset_color%}${NEWLINE}$ '
 # PROMPT='[$(hostname)] [%D{%K:%M:%S}]${ret_status}%{$fg_bold[green]%} %2d%{$fg_bold[blue]%}$(git_prompt_info)%{$fg_bold[blue]%} %{$reset_color%}${NEWLINE}$ '
 
