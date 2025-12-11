@@ -89,7 +89,6 @@ config_tmux() {
   then
     git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
   fi
-  ~/.tmux/plugins/tpm/bin/install_plugins
 }
 
 install_zsh() {
@@ -167,14 +166,13 @@ install_linux() {
 install_macos() {
   /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
   brew update
-  brew install coreutils git tmux zsh go asdf fzf autojump bat wget curl fd gpg git-crypt git-lfs git-secret libmagic awscli docker pipenv virtualenv libjpeg the_silver_searcher htop dua-cli git-delta eza diff-so-fancy  
+  brew install coreutils git tmux zsh go asdf fzf autojump bat wget curl fd gpg git-crypt git-lfs git-secret libmagic awscli docker pipenv virtualenv libjpeg the_silver_searcher htop dua-cli git-delta eza diff-so-fancy fzf
 
   brew install rectangle || true
   brew install alt-tab || true
 
   install_dotfiles
   install_pyenv
-  install_fzf
   # install_pistol
   install_if
   install_nvm
