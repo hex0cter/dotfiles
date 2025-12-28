@@ -47,7 +47,7 @@ pyenv_init() {
     eval "$(pyenv init -)"
 }
 
-# which pyenv >/dev/null && pyenv_init
+which pyenv >/dev/null && pyenv_init
 
 [ -f /usr/local/etc/profile.d/autojump.sh ] && source /usr/local/etc/profile.d/autojump.sh
 [ -f $HOME/.fzf.zsh ] && source $HOME/.fzf.zsh
@@ -63,6 +63,7 @@ pyenv_init() {
 [[ -z $(which eza) ]] && alias ls='eza --icons --git-ignore'
 [[ -z $(which emacs) ]] && alias e='emacs -nw'
 [[ -z $(which lazygit) ]] && alias lg='lazygit'
+[[ "$TERM_PROGRAM" == "kiro" ]] && . "$(kiro --locate-shell-integration-path zsh)"
 
 alias dot="git --git-dir=$HOME/.cfg/ --work-tree=$HOME"
 alias download-links-from-url="wget -r -np -nc -l 0 -A"

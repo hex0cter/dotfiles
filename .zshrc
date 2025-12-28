@@ -28,7 +28,7 @@ setopt hist_ignore_all_dups
 setopt hist_save_no_dups
 unsetopt share_history
 
-if [[ -f "$HOME/.personal.zsh"  && "$TERM_PROGRAM" != "vscode" ]]
+if [[ -f "$HOME/.personal.zsh" ]]
 then
   source "$HOME/.personal.zsh"
 else
