@@ -47,6 +47,14 @@ pyenv_init() {
     eval "$(pyenv init -)"
 }
 
+download_mp3_from_youtube() {
+    if ! command -v yt-dlp &>/dev/null; then
+        echo "Run pip install yt-dlp first"
+    else
+        yt-dlp -x --audio-format mp3 $1
+    fi
+}
+
 which pyenv >/dev/null && pyenv_init
 
 [ -f /usr/local/etc/profile.d/autojump.sh ] && source /usr/local/etc/profile.d/autojump.sh
