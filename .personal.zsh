@@ -56,6 +56,7 @@ download_mp3_from_youtube() {
 }
 
 which pyenv >/dev/null && pyenv_init
+[ -d $HOME/.nvm ] && nvm_init
 
 [ -f /usr/local/etc/profile.d/autojump.sh ] && source /usr/local/etc/profile.d/autojump.sh
 [ -f $HOME/.fzf.zsh ] && source $HOME/.fzf.zsh
@@ -98,3 +99,4 @@ fpath=(~/.zsh/completion $fpath)
 command -v brew && eval "$(/usr/local/bin/brew shellenv)"
 
 export PATH
+unset LANG
