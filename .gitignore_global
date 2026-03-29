@@ -7,3 +7,4 @@ git-crypt.key
 .idea
 .python-version
 node_modules
+**/.claude/settings.local.json
