@@ -41,5 +41,3 @@ source $ZSH/oh-my-zsh.sh
 
 # End of profiling zsh
 # zprof
-
-. "$HOME/.local/bin/env"
