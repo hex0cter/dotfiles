@@ -96,7 +96,7 @@ export PNPM_HOME="$HOME/Library/pnpm"
 
 fpath=(~/.zsh/completion $fpath)
 
-command -v brew && eval "$(/usr/local/bin/brew shellenv)"
+command -v brew >/dev/null && eval "$(/usr/local/bin/brew shellenv)"
 
 export PATH
 unset LANG
