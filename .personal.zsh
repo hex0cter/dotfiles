@@ -99,4 +99,5 @@ fpath=(~/.zsh/completion $fpath)
 command -v brew >/dev/null && eval "$(/usr/local/bin/brew shellenv)"
 
 export PATH
-unset LANG
+export LANG=en_US.UTF-8
+export LC_ALL=en_US.UTF-8
