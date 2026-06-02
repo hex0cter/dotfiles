@@ -180,7 +180,7 @@ install_macos() {
   install_yarn
 
   install_zsh
-  fix_zsh_permissions
+  # fix_zsh_permissions
 
   config_tmux
   pyenv install 3
