@@ -16,7 +16,6 @@ plugins+=(
   zsh-autosuggestions
   zsh-completions
   zsh-syntax-highlighting
-  web-search
 )
 
 HISTFILE=$HOME/.zsh_history
