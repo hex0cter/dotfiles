@@ -167,7 +167,7 @@ install_macos() {
   /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
   eval "$(/opt/homebrew/bin/brew shellenv zsh)"
   brew update
-  brew install coreutils git tmux zsh go asdf fzf autojump bat wget curl fd gpg git-crypt git-lfs git-secret libmagic awscli docker pipenv virtualenv libjpeg the_silver_searcher htop dua-cli git-delta eza diff-so-fancy fzf pyenv
+  brew install coreutils git tmux zsh go asdf fzf autojump bat wget curl fd gpg git-crypt git-lfs git-secret libmagic awscli docker pipenv virtualenv libjpeg the_silver_searcher htop dua-cli git-delta eza diff-so-fancy fzf pyenv trash
 
   brew install rectangle || true
   brew install alt-tab || true
@@ -176,7 +176,6 @@ install_macos() {
   # install_pistol
   install_if
   install_nvm
-  install_trash
   install_yarn
 
   install_zsh

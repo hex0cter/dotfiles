@@ -37,7 +37,7 @@ reset-wifi() {
 
 nvm_init() {
     export NVM_DIR="$HOME/.nvm"
-    [ -s "$NVM_DIR/nvm.sh" ] && source "$NVM_DIR/nvm.sh"  # This loads nvm
+    [ -s "$NVM_DIR/nvm.sh" ] && source "$NVM_DIR/nvm.sh" --no-use  # This loads nvm (--no-use skips the auto `nvm use`, ~1s faster)
     [ -s "$NVM_DIR/bash_completion" ] && source "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 }
 
@@ -64,7 +64,7 @@ which pyenv >/dev/null && pyenv_init
 [ -f $HOME/.config/lf/env.sh ] && source $HOME/.config/lf/env.sh
 [ -f $HOME/.rye/env ] && source "$HOME/.rye/env"
 
-[[ -z $(which htop) ]] && alias top='htop'
+[[ -n $(which htop) ]] && alias top='htop'
 [[ -z $(which du) ]] && alias du='dua i'
 [[ -z $(which trash) ]] && alias rm='trash' # npm i -g trash-cli
 [[ -z $(which wikit) ]] && alias wiki='wikit' # npm i -g wikit
@@ -101,3 +101,4 @@ command -v brew >/dev/null && eval "$(brew shellenv)"
 export PATH
 export LANG=en_US.UTF-8
 export LC_ALL=en_US.UTF-8
+export CLAUDE_CODE_ENABLE_TODO_TOOL=1
